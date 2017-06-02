@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 
-import user from './app/user';
+import user from './app/modules/user';
 
 const app = express(); // Our express server!
 const port = process.env.PORT || 8080;
