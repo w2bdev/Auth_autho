@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 
+import game from './app/modules/game';
 import user from './app/modules/user';
 
 const app = express(); // Our express server!
@@ -39,6 +40,8 @@ app.use((req, res, next) => {
 
 //Router Injection
 console.log(`Route Injection Start`);
+console.log(`Game Route`);
+app.use(game.router);
 console.log(`User Route`);
 app.use(user.router);
 
