@@ -7,21 +7,14 @@ const app = express();
 const router = express.Router();
 
 // API routes
+// MiddleWare : VerifyAuth
 router.route('/games')
-    // verifyAuth is the security middleware to check the authentication
-    .post(verifyAuth, postGame)
-    // create a game
-    //.post(postGame)
-    // get all the games
-    .get(getGames);
+    .get(getGames)
+    .post(verifyAuth, postGame);
+    
 router.route('/games/:id')
-    // get a single game
     .get(getGame)
-    // Again delete requests pass through the security middleware
     .delete(verifyAuth, deleteGame);
-    // delete a single game
-    //.delete(deleteGame);
-
 
 module.exports = {
     router: router
